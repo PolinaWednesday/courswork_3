@@ -1,3 +1,23 @@
-from src.utils import *
 
-print(operation(operations.json))
+from src.utils import operation, filter_operations, sort_by_date, show_ops
+
+
+def main():
+    # Чтение данных из файла
+    operations = operation('operations.json')
+
+    # Фильтрация операций по статусу "Выполнено"
+    executed_operations = filter_operations(operations)
+
+    # Сортировка операций по дате
+    sorted_operations = sort_by_date(executed_operations)
+
+    # Вывод отсортированных операций в заданном формате
+    show_ops(sorted_operations)
+
+
+
+
+
+if __name__ == '__main__':
+    main()
